@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+  <h3>All Listings</h3>
+  
+  <!-- Add row spacing with g-4 for consistent gaps between cards -->
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-3">
+    <% for (let listing of allListings) { %>
+      <div class="col">
+        <a href="/listings/<%= listing._id %>" class="text-decoration-none">
+          <div class="card h-100">
+            <img 
+              src="<%= listing.image.url %>" 
+              class="card-img-top" 
+              alt="listing_image"  
+              style="height: 20rem; object-fit: cover;"
+            />
+            
+              <div class="card-img-overlay">
+                
+              
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                <strong><%= listing.title %></strong><br />
+                &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    <% } %>
+  </div>
+</body>
